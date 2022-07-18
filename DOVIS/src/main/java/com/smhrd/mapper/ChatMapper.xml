@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.ChatMapper">
+    
+    <!-- 일정 정보 채팅 로그 등록 -->
+    <insert id ="insertChatLog" 
+        parameterType="com.smhrd.domain.Chat">
+        insert into chatting_details (room_seq, talker, talk) 
+        values (1, #{talker}, #{talk})
+    </insert>
+    
+</mapper>

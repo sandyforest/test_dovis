@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+	<!-- DB 정보 저장하고 있는 객체 -->
+	<!-- property가 필드와 동일 -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver"></property>
+		<property name="jdbcUrl"
+			value="jdbc:mysql://project-db-stu.ddns.net:3307/dovis"></property>
+		<property name="username" value="dovis"></property>
+		<property name="password" value="12345"></property>
+	</bean>
+
+	<!--HikariCP Configration -->
+	<!-- 커넥션 풀 생성을 도와줄 객체 생성 -->
+	<!-- 생성자 매개변수로 hikariconfig -->
+	<!-- dataSource: Connection들을 가지고 있는 DBCP -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
+		<!-- hikariconfig 받아옴 -->
+	</bean>
+
+	<!-- 커넥션과 Mapper객체들을 관리할 sqlSessionFactory객체 생성 -->
+	<!-- sqlSessionFactory에 dataSource 집어넣는 것 -->
+	<!-- 맵퍼 인터페이스의 추상 메소드 내용을 채워주는 역할!! -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<!-- ★★★별표백개★★★ -->
+	<!-- 추상 메소드 내용을 채워줄 맵퍼를 찾아준다!! -->
+	<!-- mapper가 있는 패키지 스캔해서!! 위의 sqlsessionfactory에서 interface를 완전한 객체로 채워준다 -->
+	<mybatis-spring:scan base-package="com.smhrd.mapper" />
+	
+</beans>
+
+<!-- bean : java 오브젝트(객체) 하지만 spring에서의 bean은 특별하다 스프링이 생성, 삭제를 관리하는 객체! -->
+	<!-- IOC(Inversion of Control): 사람이 객체를 만들고 사용하는 게 아니라, 스프링이 알아서 만들고 연결 -->

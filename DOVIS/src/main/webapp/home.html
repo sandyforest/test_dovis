@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="stylesheet" href="./resources/css/main.css">
+    <link rel="stylesheet" href="./resources/css/modal.css">
+    <link rel="stylesheet" href="./resources/css/home.css">
+    <script src="https://kit.fontawesome.com/30e8ed642c.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<!-- body 태그 스따뚜 -->
+
+<body>
+    <header>
+        <!-- nav 태그 스따뚜 -->
+        <nav class="nav_bar">
+            <!-- nav 전체 -->
+            <div class="nav_logo">
+                <!-- nav 좌측 -->
+                <a href="main.html"><i class="fa-solid fa-heart"></i> DOVIS</a>
+            </div>
+            <ul class="nav_menu">
+                <!-- nav 중앙 -->
+                <li><a href="#">home</a></li>
+                <li><a href="#">schedule</a></li>
+                <li><a href="#">calendar</a></li>
+                <li><a href="#">chatting</a></li>
+            </ul>
+            <ul class="nav_icon">
+                <!-- nav 우측 -->
+                <li><a href="#"><i class="fa-solid fa-user"></i></a></li><!-- 회원가입 -->
+                <!--<li><i class="fa-solid fa-user-check"></i></li>로그인 -->
+                <li><a href="#"><i class="fa-solid fa-user-gear"></i></a></li><!-- 마이페이지 -->
+            </ul>
+            <a href="#" class="nav_toggle" >
+                <i class="fa-solid fa-bars"></i>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <!-- 일정 공지 화면 -->
+        <div class="modal">
+            <div class="modal_body">
+                <h3>To Do List</h3>
+                <table class="modal_con">
+                    <tr>
+                        <td class="time">12:00</td>
+                        <td class="content"><i class="fa-regular fa-square" id="check_box"></i>  **팀 김부장놈과 점심약속</td>
+                        <td class="edit">
+                            <button class="update_btn">수정</button>
+                            <button class="delete_btn">삭제</button>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                </table>
+            </div>
+        </div>
+        <button class="modal_btn" id="check-btn">check</button>
+    </main>
+    <footer>
+        <div class="footer_con">스마트인재개발원 | 빅데이터 분석서비스 개발자과정 B</div>
+    </footer>
+    <script>
+        $('#check_box').on("click", function () {
+            $(this).removeClass()
+            $(this).addClass("fa-solid fa-square-check")
+        })
+    </script>
+    <script src="/js/modal.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
