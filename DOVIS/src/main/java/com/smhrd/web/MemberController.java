@@ -15,13 +15,37 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 
-	// base jsp로 이동 시켜 줄 컨트롤러 만들기
+	// start.jsp로 이동(로그인)
 	@RequestMapping("/")
 	public String base() {
 		// WEB-INF/view/base.jsp
-		return "base";
+		return "start";
 	}
-
+	
+	// 메인페이지로 이동
+	@RequestMapping("/dovis.do")
+	public String dovis() {
+		return "main";
+	}
+	
+	// home.jsp로 이동(to do list)
+	@RequestMapping("/home.do")
+	public String home() {
+		return "home";
+	}
+	
+	// 캘린더 페이지로 이동
+	@RequestMapping("/calendar.do")
+	public String calendar() {
+		return "calendar";
+	}
+	
+	// 정보수정 페이지로 이동
+	@RequestMapping("/setting.do")
+	public String setting() {
+		return "setting";
+	}
+	
 	// 로그인 페이지 이동
 	@RequestMapping("/login.do")
 	public String login() {
@@ -43,7 +67,7 @@ public class MemberController {
 			// 세션이 스프링 세큐리티보다 쉬워서
 		}
 
-		return "redirect:/";
+		return "redirect:/dovis.do";
 	}
 
 	// 로그아웃 기능
