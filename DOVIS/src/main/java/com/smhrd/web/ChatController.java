@@ -18,7 +18,7 @@ public class ChatController {
 
 	@RequestMapping("/chat.do")
 	public String goChat() {
-		return "chat";
+		return "chat2";
 	}
 
 	// 일정 내역이 적힌 채팅 디비에 등록

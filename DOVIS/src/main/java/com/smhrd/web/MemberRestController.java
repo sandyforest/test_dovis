@@ -11,13 +11,13 @@ import com.smhrd.domain.Members;
 import com.smhrd.mapper.MemberMapper;
 import com.smhrd.service.MemberService;
 
-@RestController 
+@RestController
 public class MemberRestController {
-	
+
 	@Autowired
 	MemberService service;
-	//MemberMapper mapper;
-	
+	// MemberMapper mapper;
+
 //	@RequestMapping("/selectMember.do")
 //	public Member selectMember(Model model, Member member) {
 //		
@@ -30,23 +30,29 @@ public class MemberRestController {
 //		return loginVO;
 //		
 //	}
-	
-	@RequestMapping("/memberList.do") 
+
+	@RequestMapping("/memberList.do")
 	public List<Members> memberList() {
-		// @ResponseBody 
+		// @ResponseBody
 		// 이 데이터를 응답 해 주겠다
 		// 이때 페이지 이동 x
-		
+
 		// 글 데이터 가져오기
 		List<Members> mlist = service.memberList();
-		
+
 		// 리턴이 값을 돌려주는 게 아니라, forward 방식으로 이동
 		// ajax는 페이지 이동x
-		
+
 		// jackson databind 라이브러리
 		// 객체를 리턴 --> json
 		return mlist;
 	}
-	
+
+	// 프로필 조회
+	@RequestMapping("/check.do")
+	public List<Members> checkMember(Members members) {
+		List<Members> checkP = service.checkMember(members);
+		return checkP;
+	}
 
 }

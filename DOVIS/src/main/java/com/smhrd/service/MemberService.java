@@ -36,4 +36,11 @@ public class MemberService {
 		return mlist;
 	}
 
+	// 멤버 프로필 조회
+	// 프로필 조회
+	public List<Members> checkMember(Members members) {
+		List<Members> checkP = mapper.checkMember(members);
+		return checkP;
+	}
+
 }

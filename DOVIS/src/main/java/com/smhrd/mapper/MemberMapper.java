@@ -11,8 +11,11 @@ public interface MemberMapper {
 
 	// 로그인 기능
 	public Members selectMember(Members member);
-	
+
 	// 조회 기능
 	public List<Members> memberList();
+
+	// 프로필 조회 기능
+	public List<Members> checkMember(Members member);
 
 }

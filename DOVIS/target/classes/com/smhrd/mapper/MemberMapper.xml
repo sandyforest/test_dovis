@@ -19,5 +19,13 @@
 	<select id="memberList" resultType="com.smhrd.domain.Members">
 		select * from members
 	</select>
+	
+	<!-- 프로필 조회 -->
+	<select id="checkMember"
+		parameterType="com.smhrd.domain.Members"
+		resultType="com.smhrd.domain.Members">
+		select mem_name, mem_dept, mem_position from members 
+		where mem_id=#{mem_id}
+	</select>
     
 </mapper>
