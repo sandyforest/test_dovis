@@ -6,10 +6,11 @@
 <title>dovis calendar</title>
 <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.2.0/main.min.js"></script>
+<script src='resources/js/calendar.js'></script>
 <link rel="stylesheet" href="resources/css/main.css">
 <link rel="stylesheet" href="resources/css/calendar.css">
 <link rel="stylesheet" href="resources/css/calendar-main.css">
-<script src='resources/js/calendar.js'></script>
 </head>
 <body>
 <script>
